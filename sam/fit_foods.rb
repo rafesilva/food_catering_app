@@ -1,5 +1,7 @@
 require_relative 'table_display'
+require_relative 'fit_sign'
 require 'colorize'
+include LogIn
 
 module FoodsList
     module_function
@@ -7,14 +9,15 @@ module FoodsList
         "Blintzes",
         "Boiled egg",
         "Breadfruit",
-        "Breakfast burrito",
-        "Breakfast cereal",
-        "Breakfast roll",
+        "Quinoa and Chia Porridge",
+        "Oat Meal",
+        "Tomato Toast With Macadamia Ricotta",
         "Breakfast sandwich",
-        "Breakfast sausage",
+        "Avocado Toast With Egg",
         "Breakfast taco",
         "Brenntar"
     ]
+    
 
     L = [
         "Éclair",
@@ -42,38 +45,34 @@ module FoodsList
         "Pop-Tart",
         "Protein bar"
     ]
-    # Day 1
-    Day1 = {
-        breakfast: ["#{B[0]}","#{B[1]}","#{B[2]}"],
-        lunch: ["#{L[0]}","#{L[1]}","#{L[2]}"],
-        dinner: ["#{D[0]}","#{D[1]}","#{D[2]}"]
+
+    
+    Meal_normal = {
+        breakfast: ["#{B.sample}","#{B.sample}","#{B.sample}"],
+        lunch: ["#{L.sample}","#{L.sample}","#{L.sample}"],
+        dinner: ["#{D.sample}","#{D.sample}","#{D.sample}"]
     }
     
-    # Day 2
-    Day2 = {
-        breakfast: ["#{B[4]}","#{B[4]}","#{B[3]}"],
-        lunch: ["#{L[4]}","#{L[4]}","#{L[3]}"],
-        dinner: ["#{D[4]}","#{D[4]}","#{D[3]}"]
+    Meal_allergic = {
+        breakfast: ["#{B.sample.colorize(:yellow)}","#{B.sample}","#{B.sample}"],
+        lunch: ["#{L.sample}","#{L.sample}","#{L.sample.colorize(:yellow)}"],
+        dinner: ["#{D.sample}","#{D.sample.colorize(:yellow)}","#{D.sample}"]
     }
-
-    # Day 3
-    Day3 = {
-        breakfast: ["#{B[4]}","#{B[3]}","#{B[5]}"],
-        lunch: ["#{L[4]}","#{L[3]}","#{L[5]}"],
-        dinner: ["#{D[4]}","#{D[3]}","#{D[5]}"]
+    
+    # Alternate meal and non allergic
+    Meal_alt = {
+        breakfast: ["#{B.sample}","#{B.sample}","#{B.sample}"],
+        lunch: ["#{L.sample}","#{L.sample}","#{L.sample}"],
+        dinner: ["#{D.sample}","#{D.sample}","#{D.sample}"]
     }
+    
 
 
     # changing the sentence
-    def swap_foods (array,index)
-        array[index] = ("Non-Allergic " + array[index]).colorize(:green)
-    end
-
-    
+    # def swap_foods (hash_name,key,value) do
+    #     puts (hash_name[key][value]).colorize(:green)
+    #     # hash[keys[val]] = ("Non-Allergic " + hash[keys[val]]).colorize(:green)
+    # end
     
 end
-
-
-# puts "changed to\n"
-
-# swap_foods
+ 

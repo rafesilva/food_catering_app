@@ -1,25 +1,46 @@
 require_relative 'fit_sign'
 require_relative 'fit_foods'
 require_relative 'table_display'
+require 'colorize'
 include FoodsList
 include DisTable
 include LogIn
 
 # Customer sign_in
-    # sign_in
-    # hash_horizontal CUST_LIST
+    profile
+    hash_horizontal CUST_LIST
+# Displaying the Meal for today
+    puts "TODAY's MEAL ----"
+    if CUST_LIST[:allergies].downcase == "yes"
+        display_hash_3 Meal_allergic
+    else
+        display_hash_3 Meal_normal
+    end
+# Option to change set
+    puts "Would you like to change set? [yes] or [no]"
+    answer = gets.chomp
+    while answer != "yes" || answer != "no"
+        if answer == "yes"
+            system 'clear'
+            puts "TODAY's MEAL ****"
+            display_hash_3 Meal_alt
+            puts "Would you like to change back? [yes] or [no]"
+            answer = gets.chomp
+            if answer == "yes"
+                system'clear'
+                puts "TODAY's MEAL ****"
+                display_hash_3 Meal_allergic
+                break
+            elsif answer == "no"
+                break
+            end
+        elsif answer == "no"
+            break
+        end
+        puts "Sorry, didn't get your answer..."
+        puts "Would you like to change set? [yes] or [no]"
+        answer = gets.chomp
+    end
 
-
-# swap_foods(Day1_Breakfast,2)
-# hash_horizontal Day1_Breakfast
-# puts Day1_Breakfast
-# puts sign_in.allergies
-
-sample_hash = {
-    key1: ["Value1","Value2","Value3"],
-    key2: ["Value4","Value5","Value6"],
-    key3: ["Value7","Value8","Value9"],
-}
-display_hash_3 Day1
-
-puts Day1.method
+# FINISH
+puts "Thank you for choosing your meal!"
