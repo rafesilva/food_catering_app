@@ -3,7 +3,7 @@ require 'colorize'
 
 module FoodsList
     module_function
-    Breakfast = [
+    B = [
         "Blintzes",
         "Boiled egg",
         "Breadfruit",
@@ -16,7 +16,7 @@ module FoodsList
         "Brenntar"
     ]
 
-    Lunch = [
+    L = [
         "Éclair",
         "Eggs",
         "Egg sandwich",
@@ -29,7 +29,7 @@ module FoodsList
         "Home fries"
     ]
 
-    Dinner = [
+    D = [
         "Malt-O-Meal",
         "McGriddle",
         "McMuffin",
@@ -43,19 +43,25 @@ module FoodsList
         "Protein bar"
     ]
     # Day 1
-    Day1_Breakfast = [Breakfast[0],Breakfast[1],Breakfast[2]]
-    Day1_Lunch = [Lunch[0],Lunch[1],Lunch[2]]
-    Day1_Dinner = [Dinner[0],Dinner[1],Dinner[2]]
+    Day1 = {
+        breakfast: ["#{B[0]}","#{B[1]}","#{B[2]}"],
+        lunch: ["#{L[0]}","#{L[1]}","#{L[2]}"],
+        dinner: ["#{D[0]}","#{D[1]}","#{D[2]}"]
+    }
     
     # Day 2
-    Day2_Breakfast = [Breakfast[4],Breakfast[4],Breakfast[3]]
-    Day2_Lunch = [Lunch[4],Lunch[4],Lunch[3]]
-    Day2_Dinner = [Dinner[4],Dinner[4],Dinner[3]]
+    Day2 = {
+        breakfast: ["#{B[4]}","#{B[4]}","#{B[3]}"],
+        lunch: ["#{L[4]}","#{L[4]}","#{L[3]}"],
+        dinner: ["#{D[4]}","#{D[4]}","#{D[3]}"]
+    }
 
     # Day 3
-    Day3_Breakfast = [Breakfast[4],Breakfast[3],Breakfast[5]]
-    Day3_Lunch = [Lunch[4],Lunch[3],Lunch[5]]
-    Day3_Dinner = [Dinner[4],Dinner[3],Dinner[5]]
+    Day3 = {
+        breakfast: ["#{B[4]}","#{B[3]}","#{B[5]}"],
+        lunch: ["#{L[4]}","#{L[3]}","#{L[5]}"],
+        dinner: ["#{D[4]}","#{D[3]}","#{D[5]}"]
+    }
 
 
     # changing the sentence

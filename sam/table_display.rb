@@ -1,4 +1,5 @@
 require 'terminal-table'
+require 'colorize'
 
 module DisTable
     module_function
@@ -24,7 +25,13 @@ module DisTable
             rows << head_col_add
 
                 col_add = []
-                target.each_value {|value| col_add << value}
+                target.each_value {|value|
+                    if value == "yes"
+                        col_add << value.colorize(:yellow)
+                    else
+                        col_add << value
+                    end
+                }
 
 
             rows << col_add
@@ -46,7 +53,14 @@ module DisTable
             rows << head_col_add
 
                 col_add = []
-                target.each_value {|value,value2,value3| col_add << value+"\n"+value2+"\n"+value3}
+                target.each_value {|value,value2,value3|
+                if value == "yes"
+                    col_add << value+"\n"+value2+"\n"+value3.colorize(:yellow)
+                else
+                    col_add << value+"\n"+value2+"\n"+value3
+                end
+                 
+                }
 
             rows << col_add
 
