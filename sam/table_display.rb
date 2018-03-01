@@ -71,7 +71,7 @@ module DisTable
 
     def display_array target
         rows = []
-        rows << ["#{target.object_name.to_s}",100]
+        # rows << ["#{target.object_id}"]
         col = []
             target.each {|key| col << key }
         rows << col

@@ -20,4 +20,6 @@ sample_hash = {
     key2: ["Value4","Value5","Value6"],
     key3: ["Value7","Value8","Value9"],
 }
-display_array Day1
+display_hash_3 Day1
+
+puts Day1.method
